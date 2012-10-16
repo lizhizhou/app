@@ -9,6 +9,9 @@
 *.fsproj merge=union
 *.dbproj merge=union
 
+*.project
+*.cproject
+
 # Standard to msysgit
 *.doc	 diff=astextplain
 *.DOC	 diff=astextplain

@@ -66,21 +66,23 @@ int main(int argn, char* argv[])
 		  break;
 	  case 4:
 		  {
-			  unsigned int* PWM_Freg  = data+0x140;
-			  unsigned int* PWM_width = data+0x144;
+			  unsigned int* PWM_Freg  = data+0x240;
+			  unsigned int* PWM_width_A = data+0x244;
+			  unsigned int* PWM_width_B = data+0x248;
 			  char c;
 			  int frequent = 1000;
 			  int duty_cycle =50;
 			  *PWM_Freg = frequent * 0x100000000 / 200000000;
-			  *PWM_width = 0xffffffff / 100 * duty_cycle;
+			  *PWM_width_A = 0xffffffff / 100 * duty_cycle;
+			  *PWM_width_B = 0xffffffff / 100 * duty_cycle;
 			  printf("%d\n",frequent);
-			  printf("%d\n",*PWM_width);
+			  printf("%d\n",*PWM_width_A);
 			  while(1)
 			  {
-				  data[0x14c]=1;
+				  data[0x24c]=1;
 				  c = getchar();
 				  if(c == 'q')break;
-				  data[0x14c]=0;
+				  data[0x24c]=0;
 				  c = getchar();
 				  if(c == 'q')break;
 			  }
